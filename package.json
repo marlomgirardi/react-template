@@ -1,0 +1,43 @@
+{
+  "name": "react-boilerplate",
+  "version": "0.0.1",
+  "description": "This is my personal React boilerplate with everything that I need.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --progress --colors --hot --config ./webpack.config.js --mode development",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marlomgirardi/react-boilerplate.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Marlom Girardi",
+    "email": "marlom.girardi@gmail.com",
+    "url": "https://github.com/marlomgirardi"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marlomgirardi/react-boilerplate/issues"
+  },
+  "homepage": "https://github.com/marlomgirardi/react-boilerplate#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "react-hot-loader": "^4.6.3",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  }
+}
