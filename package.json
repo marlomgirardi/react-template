@@ -4,9 +4,8 @@
   "description": "This is my personal React boilerplate with everything that I need.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors --hot --config ./webpack.config.js --mode development",
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "start": "cross-env NODE_ENV=development webpack-dev-server --progress --colors --hot --config ./internals/webpack/webpack.config.js --mode development",
+    "build": "cross-env NODE_ENV=production webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -28,6 +27,7 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
+    "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "html-webpack-plugin": "^3.2.0",
     "react-hot-loader": "^4.6.3",
