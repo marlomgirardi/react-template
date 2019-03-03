@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --progress --colors --hot --config ./internals/webpack/webpack.dev.js",
-
     "prebuild": "rimraf ./build",
     "build": "cross-env NODE_ENV=production webpack --config ./internals/webpack/webpack.prod.js"
   },
@@ -25,26 +24,27 @@
   },
   "homepage": "https://github.com/marlomgirardi/react-boilerplate#readme",
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.3.1",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "circular-dependency-plugin": "^5.0.2",
     "compression-webpack-plugin": "^2.0.0",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
+    "directory-named-webpack-plugin": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",
-    "react-app-polyfill": "^0.2.0",
-    "react-hot-loader": "^4.6.3",
+    "react-app-polyfill": "^0.2.1",
+    "react-hot-loader": "^4.7.1",
     "rimraf": "^2.6.3",
     "style-loader": "^0.23.1",
-    "terser-webpack-plugin": "^1.2.1",
-    "webpack": "^4.29.0",
-    "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.1.14"
+    "terser-webpack-plugin": "^1.2.3",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
   }
 }

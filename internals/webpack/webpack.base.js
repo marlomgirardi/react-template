@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const DirectoryNamedWebpackPlugin = require("directory-named-webpack-plugin");
 
 // Remove this line once the following warning goes away (it was meant for webpack loader authors not users):
 // 'DeprecationWarning: loaderUtils.parseQuery() received a non-string value which can be problematic,
@@ -137,8 +138,14 @@ module.exports = options => ({
   ]),
   resolve: {
     modules: ['node_modules', 'app'],
-    extensions: ['.js', '.jsx', '.react.js'],
+    extensions: ['.js', '.jsx'],
     mainFields: ['browser', 'jsnext:main', 'main'],
+    plugins: [
+      // Use components without redundant names.
+      // import Comp from './Comp/Comp'
+      // can be import Compo from './Comp' with this plugin
+      new DirectoryNamedWebpackPlugin()
+    ]
   },
   devtool: options.devtool,
   target: 'web', // Make web variables accessible to webpack, e.g. window
