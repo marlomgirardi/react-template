@@ -1,0 +1,5 @@
+{
+  "presets": [[ "@babel/preset-env", {
+      "targets": "> 5%, last 2 Safari versions and > .5%, last 2 Edge versions and > .5%"
+  }], "@babel/react"]
+}

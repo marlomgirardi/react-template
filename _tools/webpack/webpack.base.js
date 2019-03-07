@@ -17,12 +17,7 @@ module.exports = options => ({
       {
         test: /\.js$/, // Transform all .js files required somewhere with Babel
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/env', '@babel/react']
-          },
-        },
+        use: 'babel-loader',
       },
       {
         // Preprocess our own .css files
