@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const DirectoryNamedWebpackPlugin = require("directory-named-webpack-plugin");
+const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 
 module.exports = options => ({
   mode: options.mode,
@@ -20,7 +20,7 @@ module.exports = options => ({
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ["@babel/env", "@babel/react"]
+            presets: ['@babel/env', '@babel/react']
           },
         },
       },
@@ -31,17 +31,61 @@ module.exports = options => ({
         test: /\.scss$/,
         exclude: /node_modules/,
         use: [
-          "style-loader", // creates style nodes from JS strings
-          "css-loader", // translates CSS into CommonJS
-          "sass-loader" // compiles Sass to CSS, using Node Sass by default
-      ]
+          'style-loader', // creates style nodes from JS strings
+          'css-loader', // translates CSS into CommonJS
+          'sass-loader' // compiles Sass to CSS, using Node Sass by default
+        ]
       },
+
+      // USE IT IF YOU NEED THE CSS FROM node_modules
+      // {
+      //   // Preprocess 3rd party .css files located in node_modules
+      //   test: /\.css$/,
+      //   include: /node_modules/,
+      //   use: ['style-loader', 'css-loader'],
+      // },
+
       {
-        // Preprocess 3rd party .css files located in node_modules
-        test: /\.css$/,
-        include: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.(eot|otf|ttf|woff|woff2)$/,
+        use: 'file-loader',
       },
+
+      {
+        test: /\.(jpg|png|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              // Inline files smaller than 10 kB
+              limit: 10 * 1024,
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                // NOTE: mozjpeg may causes errors in some Linux environments
+                enabled: true,
+                progressive: true,
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              optipng: {
+                optimizationLevel: 7,
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4,
+              },
+              webp: {
+                quality: 75
+              }
+            },
+          },
+        ],
+      },
+
     ],
   },
   plugins: options.plugins.concat([
@@ -55,7 +99,7 @@ module.exports = options => ({
     }),
   ]),
   resolve: {
-    modules: ['node_modules', 'app'],
+    modules: ['node_modules', 'src'],
     extensions: ['.js', '.jsx'],
     mainFields: ['browser', 'jsnext:main', 'main'],
     plugins: [
