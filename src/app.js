@@ -8,4 +8,5 @@ const Index = () => {
 
 ReactDOM.render(<Index />, document.getElementById("app"));
 
+// TODO: Hot reload with problem
 module.hot.accept();
