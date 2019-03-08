@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const DirectoryNamedWebpackPlugin = require("directory-named-webpack-plugin");
+const autoprefixer = require("autoprefixer");
 
 module.exports = (options) => ({
     mode: options.mode,
@@ -15,32 +16,48 @@ module.exports = (options) => ({
     optimization: options.optimization,
     module: {
         rules: [
+
+            // Transform all .js files required somewhere with Babel
             {
-                test: /\.js$/, // Transform all .js files required somewhere with Babel
+                test: /\.js$/,
                 exclude: /node_modules/,
                 use: "babel-loader"
             },
-            {
 
-                // Preprocess our own .css files
-                // This is the place to add your own loaders (e.g. sass/less etc.)
-                // for a list of loaders, see https://webpack.js.org/loaders/#styling
+            // SCSS to CSS
+            {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 use: [
-                    "style-loader", // creates style nodes from JS strings
-                    "css-loader", // translates CSS into CommonJS
-                    "sass-loader" // compiles Sass to CSS, using Node Sass by default
+                    "style-loader",
+
+                    // CSS module enabled
+                    {
+                        loader: "css-loader",
+                        query: {
+                            modules: true,
+                            localIdentName: "[name]__[local]___[hash:base64:5]"
+                        }
+                    },
+
+                    // PostCSS
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            ident: "postcss",
+                            sourceMap: true,
+                            plugins: () => [
+                                autoprefixer({
+                                    browsers: "> 5%, last 2 Safari versions and > .5%, last 2 Edge versions and > .5%"
+                                })
+                            ]
+                        }
+                    },
+
+                    // compiles Sass to CSS, using Node Sass by default
+                    "sass-loader"
                 ]
             },
-
-            // USE IT IF YOU NEED THE CSS FROM node_modules
-            // {
-            //   // Preprocess 3rd party .css files located in node_modules
-            //   test: /\.css$/,
-            //   include: /node_modules/,
-            //   use: ['style-loader', 'css-loader'],
-            // },
 
             {
                 test: /\.(eot|otf|ttf|woff|woff2)$/,
@@ -103,8 +120,8 @@ module.exports = (options) => ({
         mainFields: ["browser", "jsnext:main", "main"],
         plugins: [
             // Use components without redundant names.
-            // import Comp from './Comp/Comp'
-            // can be import Compo from './Comp' with this plugin
+            // import Comp from "./Comp/Comp"
+            // can be import Compo from "./Comp" with this plugin
             new DirectoryNamedWebpackPlugin()
         ]
     },
