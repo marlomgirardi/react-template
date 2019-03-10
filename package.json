@@ -25,9 +25,12 @@
   "homepage": "https://github.com/marlomgirardi/react-boilerplate#readme",
   "devDependencies": {
     "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.4.10",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-react-css-modules": "^5.2.1",
     "circular-dependency-plugin": "^5.0.2",
