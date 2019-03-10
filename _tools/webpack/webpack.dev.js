@@ -1,5 +1,4 @@
 const path = require("path");
-const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CircularDependencyPlugin = require("circular-dependency-plugin");
 
@@ -14,7 +13,7 @@ module.exports = require("./webpack.base")({
     entry: [
     // use that if you need to support IE11
     // require.resolve('react-app-polyfill/ie11'),
-        path.join(process.cwd(), "src/app.js") // Start with js/app.js
+        path.join(process.cwd(), "src/index.js") // Start with js/index.js
     ],
 
     // Don't use hashes in dev mode for better performance
@@ -35,9 +34,6 @@ module.exports = require("./webpack.base")({
 
     // Add development plugins
     plugins: [
-    // Tell webpack we want hot reloading
-        new webpack.HotModuleReplacementPlugin(),
-
         // This simplifies creation of HTML files to serve your webpack bundles
         new HtmlWebpackPlugin({
             inject: true,
