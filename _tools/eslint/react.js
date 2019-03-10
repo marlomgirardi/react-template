@@ -1,7 +1,7 @@
 module.exports = {
-    plugins: ["react"],
+    plugins: ['react'],
 
-    extends: "plugin:react/recommended",
+    extends: 'plugin:react/recommended',
 
     parserOptions: {
         ecmaFeatures: {
@@ -12,134 +12,134 @@ module.exports = {
     rules: {
 
         // Specify double quotes should be used in JSX attributes
-        "jsx-quotes": ["error", "prefer-double"],
+        'jsx-quotes': ['error', 'prefer-double'],
 
         // Prevent variables used in JSX to be incorrectly marked as unused
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md
-        "react/jsx-uses-vars": "error",
+        'react/jsx-uses-vars': 'error',
 
         // Prevent usage of deprecated methods
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-deprecated.md
-        "react/no-deprecated": "error",
+        'react/no-deprecated': 'error',
 
         // Prevent usage of setState in componentDidMount
-        "react/no-did-mount-set-state": "error",
+        'react/no-did-mount-set-state': 'error',
 
         // Prevent usage of setState in componentDidUpdate,
-        "react/no-did-update-set-state": "error",
+        'react/no-did-update-set-state': 'error',
 
         // Prevent direct mutation of this.state
-        "react/no-direct-mutation-state": "error",
+        'react/no-direct-mutation-state': 'error',
 
         // Prevent usage of isMounted. isMounted is an anti-pattern, is not available when using ES6 classes, and it is
         // on its way to being officially deprecated.
-        "react/no-is-mounted": "error",
+        'react/no-is-mounted': 'error',
 
         // Prevent multiple component definition per file
-        "react/no-multi-comp": ["error", { "ignoreStateless": true }],
+        'react/no-multi-comp': ['error', { 'ignoreStateless': true }],
 
         // Prevent using string references
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md
-        "react/no-string-refs": "error",
+        'react/no-string-refs': 'error',
 
         // Enforce ES6 class for React Components
-        "react/prefer-es6-class": ["error", "always"],
+        'react/prefer-es6-class': ['error', 'always'],
 
         // Prevent missing props validation in a React component definition
-        "react/prop-types": "error",
+        'react/prop-types': 'error',
 
         // Prevent missing React when using JSX
-        "react/react-in-jsx-scope": "error",
+        'react/react-in-jsx-scope': 'error',
 
         // Validate props indentation in JSX
-        "react/jsx-indent-props": ["error", 4],
+        'react/jsx-indent-props': ['error', 4],
 
         // Validate JSX indentation
-        "react/jsx-indent": ["error", 4],
+        'react/jsx-indent': ['error', 4],
 
         // Detect missing key prop
-        "react/jsx-key": "error",
+        'react/jsx-key': 'error',
 
         // Prevent duplicate properties in JSX
-        "react/jsx-no-duplicate-props": "error",
+        'react/jsx-no-duplicate-props': 'error',
 
         // Prevent undeclared variables in JSX
-        "react/jsx-no-undef": "error",
+        'react/jsx-no-undef': 'error',
 
         // Prevent React to be incorrectly marked as unused
-        "react/jsx-uses-react": "error",
+        'react/jsx-uses-react': 'error',
 
         // /!\ Prevent usage of findDOMNode
         // Facebook will eventually deprecate findDOMNode as it blocks certain improvements in React in the future.
-        "react/no-find-dom-node": "warn",
+        'react/no-find-dom-node': 'warn',
 
         // Prevent usage of dangerous JSX properties
         // This is disabled because in some cases we're using this feature.
-        "react/no-danger": "off",
+        'react/no-danger': 'off',
 
         // Prevent usage of Array index in keys
-        "react/no-array-index-key": "error",
+        'react/no-array-index-key': 'error',
 
         // Prevent problem with children and props.dangerouslySetInnerHTML
-        "react/no-danger-with-children": "error",
+        'react/no-danger-with-children': 'error',
 
         // Prevent invalid characters from appearing in markup
-        "react/no-unescaped-entities": "error",
+        'react/no-unescaped-entities': 'error',
 
         // Prevent definitions of unused prop types
-        "react/no-unused-prop-types": "error",
+        'react/no-unused-prop-types': 'error',
 
         // Enforce style prop value being an object
-        "react/style-prop-object": "error",
+        'react/style-prop-object': 'error',
 
         // Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
-        "react/jsx-curly-spacing": ["error", "never"],
+        'react/jsx-curly-spacing': ['error', 'never'],
 
         // Enforce or disallow spaces around equal signs in JSX attributes
-        "react/jsx-equals-spacing": ["error", "never"],
+        'react/jsx-equals-spacing': ['error', 'never'],
 
         // Prevent comments from being inserted as text nodes
-        "react/jsx-no-comment-textnodes": "error",
+        'react/jsx-no-comment-textnodes': 'error',
 
         // Prevent usage of unsafe `target='_blank'`
-        "react/jsx-no-target-blank": "error",
+        'react/jsx-no-target-blank': 'error',
 
         // Enforce PascalCase for user-defined JSX components (react/jsx-pascal-case)
-        "react/jsx-pascal-case": "error",
+        'react/jsx-pascal-case': 'error',
 
         // Prevent missing parentheses around multiline JSX
-        "react/jsx-wrap-multilines": ["error", {
-            "declaration": "parens-new-line",
-            "assignment": "parens-new-line",
-            "return": "parens-new-line",
-            "arrow": "parens-new-line",
-            "condition": "parens-new-line",
-            "logical": "parens-new-line",
-            "prop": "parens-new-line"
+        'react/jsx-wrap-multilines': ['error', {
+            'declaration': 'parens-new-line',
+            'assignment': 'parens-new-line',
+            'return': 'parens-new-line',
+            'arrow': 'parens-new-line',
+            'condition': 'parens-new-line',
+            'logical': 'parens-new-line',
+            'prop': 'parens-new-line'
         }],
 
         // /!\ Prevent usage of the return value of React.render
-        "react/no-render-return-value": "warn",
+        'react/no-render-return-value': 'warn',
 
         // /!\ Prevent missing displayName in a React component definition
-        "react/display-name": "warn",
+        'react/display-name': 'warn',
 
         // /!\ Enforce our component methods order
-        "react/sort-comp": ["warn", {
-            "order": [
-                "static-methods",
-                "lifecycle",
-                "event-handlers",
-                "everything-else",
-                "rendering"
+        'react/sort-comp': ['warn', {
+            'order': [
+                'static-methods',
+                'lifecycle',
+                'event-handlers',
+                'everything-else',
+                'rendering'
             ],
-            "groups": {
-                "event-handlers": [
-                    "/^_?on.+$/"
+            'groups': {
+                'event-handlers': [
+                    '/^_?on.+$/'
                 ],
-                "rendering": [
-                    "/^_?render.+$/",
-                    "render"
+                'rendering': [
+                    '/^_?render.+$/',
+                    'render'
                 ]
             }
         }]
@@ -147,8 +147,8 @@ module.exports = {
 
     settings: {
         react: {
-            pragma: "React",
-            version: "16.0"
+            pragma: 'React',
+            version: '16.0'
         }
     }
 };

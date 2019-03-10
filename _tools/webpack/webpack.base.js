@@ -1,7 +1,7 @@
-const path = require("path");
-const webpack = require("webpack");
-const DirectoryNamedWebpackPlugin = require("directory-named-webpack-plugin");
-const autoprefixer = require("autoprefixer");
+const path = require('path');
+const webpack = require('webpack');
+const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 module.exports = (options) => ({
     mode: options.mode,
@@ -9,8 +9,8 @@ module.exports = (options) => ({
     output: {
 
         // Compile into js/build.js
-        path: path.resolve("build"),
-        publicPath: "/",
+        path: path.resolve('build'),
+        publicPath: '/',
         ...options.output
     }, // Merge with env dependent settings
     optimization: options.optimization,
@@ -21,7 +21,7 @@ module.exports = (options) => ({
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: "babel-loader"
+                use: 'babel-loader'
             },
 
             // SCSS to CSS
@@ -29,46 +29,46 @@ module.exports = (options) => ({
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 use: [
-                    "style-loader",
+                    'style-loader',
 
                     // CSS module enabled
                     {
-                        loader: "css-loader",
+                        loader: 'css-loader',
                         query: {
                             modules: true,
-                            localIdentName: "[name]__[local]___[hash:base64:5]"
+                            localIdentName: '[name]__[local]___[hash:base64:5]'
                         }
                     },
 
                     // PostCSS
                     {
-                        loader: "postcss-loader",
+                        loader: 'postcss-loader',
                         options: {
-                            ident: "postcss",
+                            ident: 'postcss',
                             sourceMap: true,
                             plugins: () => [
                                 autoprefixer({
-                                    browsers: "> 5%, last 2 Safari versions and > .5%, last 2 Edge versions and > .5%"
+                                    browsers: '> 5%, last 2 Safari versions and > .5%, last 2 Edge versions and > .5%'
                                 })
                             ]
                         }
                     },
 
                     // compiles Sass to CSS, using Node Sass by default
-                    "sass-loader"
+                    'sass-loader'
                 ]
             },
 
             {
                 test: /\.(eot|otf|ttf|woff|woff2)$/,
-                use: "file-loader"
+                use: 'file-loader'
             },
 
             {
                 test: /\.(jpg|png|gif)$/,
                 use: [
                     {
-                        loader: "url-loader",
+                        loader: 'url-loader',
                         options: {
 
                             // Inline files smaller than 10 kB
@@ -76,7 +76,7 @@ module.exports = (options) => ({
                         }
                     },
                     {
-                        loader: "image-webpack-loader",
+                        loader: 'image-webpack-loader',
                         options: {
                             mozjpeg: {
 
@@ -91,7 +91,7 @@ module.exports = (options) => ({
                                 optimizationLevel: 7
                             },
                             pngquant: {
-                                quality: "65-90",
+                                quality: '65-90',
                                 speed: 4
                             },
                             webp: {
@@ -105,19 +105,19 @@ module.exports = (options) => ({
         ]
     },
     plugins: options.plugins.concat([
-    // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
-    // inside your code for any environment checks; Terser will automatically
-    // drop any unreachable code.
+        // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
+        // inside your code for any environment checks; Terser will automatically
+        // drop any unreachable code.
         new webpack.DefinePlugin({
-            "process.env": {
+            'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV)
             }
         })
     ]),
     resolve: {
-        modules: ["node_modules", "src"],
-        extensions: [".js", ".jsx"],
-        mainFields: ["browser", "jsnext:main", "main"],
+        modules: ['node_modules', 'src'],
+        extensions: ['.js', '.jsx'],
+        mainFields: ['browser', 'jsnext:main', 'main'],
         plugins: [
             // Use components without redundant names.
             // import Comp from "./Comp/Comp"
@@ -128,7 +128,7 @@ module.exports = (options) => ({
 
     devtool: options.devtool,
 
-    target: "web", // Make web variables accessible to webpack, e.g. window
+    target: 'web', // Make web variables accessible to webpack, e.g. window
 
     performance: options.performance || {}
 });
