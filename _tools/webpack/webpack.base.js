@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
-module.exports = (options) => ({
+module.exports = options => ({
     mode: options.mode,
     entry: options.entry,
     output: {

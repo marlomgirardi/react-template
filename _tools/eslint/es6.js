@@ -17,7 +17,7 @@ module.exports = {
         'prefer-const': 'warn',
 
         // Require parens in arrow function arguments
-        'arrow-parens': ['error', 'always'],
+        'arrow-parens': ['error', 'as-needed'],
 
         // Require space before/after arrow function’s arrow
         'arrow-spacing': ['error', {
