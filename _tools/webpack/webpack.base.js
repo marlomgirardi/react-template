@@ -1,11 +1,18 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports = options => ({
     mode: options.mode,
-    entry: options.entry,
+
+    entry: [
+        // use that if you need to support IE11
+        // require.resolve('react-app-polyfill/ie11'),
+        path.join(process.cwd(), 'src/index.js') // Start with js/index.js
+    ],
+
     output: {
 
         // Compile into js/build.js
@@ -35,7 +42,6 @@ module.exports = options => ({
                     {
                         loader: 'css-loader',
                         query: {
-                            importLoaders: 1,
                             modules: true,
                             localIdentName: '[name]__[local]--[hash:base64:5]'
                         }
@@ -106,6 +112,13 @@ module.exports = options => ({
         ]
     },
     plugins: options.plugins.concat([
+        // This simplifies creation of HTML files to serve your webpack bundles
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './src/index.html',
+            filename: './index.html'
+        }),
+
         // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
         // inside your code for any environment checks; Terser will automatically
         // drop any unreachable code.

@@ -1,20 +1,10 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 // Easy way to have colors in terminal
-
 require('colors');
 
 module.exports = require('./webpack.base')({
     mode: 'development',
-
-    // Add hot reloading in development
-    entry: [
-        // use that if you need to support IE11
-        // require.resolve('react-app-polyfill/ie11'),
-        path.join(process.cwd(), 'src/index.js') // Start with js/index.js
-    ],
 
     // Don't use hashes in dev mode for better performance
     output: {
@@ -32,12 +22,6 @@ module.exports = require('./webpack.base')({
 
     // Add development plugins
     plugins: [
-        // This simplifies creation of HTML files to serve your webpack bundles
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: './src/index.html',
-            filename: './index.html'
-        }),
 
         // Detect modules with circular dependencies when bundling with webpack.
         new CircularDependencyPlugin({

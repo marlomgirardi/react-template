@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './style.scss';
+import style from './App.scss';
 
 class App extends React.Component {
     state = {
