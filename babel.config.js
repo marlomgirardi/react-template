@@ -3,11 +3,19 @@ module.exports = function (api) {
 
     const presets = [
         '@babel/react',
-        [ '@babel/preset-env', { targets: '> 5%, last 2 Safari versions and > .5%, last 2 Edge versions and > .5%' } ]
+        [
+            '@babel/preset-env', {
+                debug: process.env.DEBUG === 'true',
+                targets: '> 5%, last 2 Safari versions and > .5%, last 2 Edge versions and > .5%'
+            }
+        ]
     ];
 
     const plugins = [
         // Plugin list: https://babeljs.io/docs/en/plugins
+
+        // Maintain react state when hot reload
+        'react-hot-loader/babel',
 
         // https://babeljs.io/docs/en/next/babel-plugin-proposal-class-properties.html
         '@babel/plugin-proposal-class-properties',

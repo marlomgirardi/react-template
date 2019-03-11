@@ -9,5 +9,6 @@ This is my personal React boilerplate with everything that ***I*** need.
 ## TODO
 
 * Testing & Coverage (istanbul)
-* PostCSS auto reset
 * ImmutableJS
+* emotion, emotion-react, emotion-babel-plugin
+* See css modules

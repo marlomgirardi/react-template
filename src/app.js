@@ -3,13 +3,25 @@ import style from './style.scss';
 
 class App extends React.Component {
     state = {
-        test: 1
+        count: 0
     }
-    render() {
-        const o = { a: 1, b: 2, c: 3 };
-        const { a, ...rest } = o;
 
-        return <div className={style.test}>Hello React! {JSON.stringify(rest)}</div>;
+    onClick = () => {
+        this.setState({
+            count: this.state.count + 1
+        });
+    }
+
+    render() {
+        return (
+            <div className={style.app}>
+                <h1>Hello React!</h1>
+                <div>
+                    <button onClick={this.onClick}>+1</button>
+                    <p>{this.state.count}</p>
+                </div>
+            </div>
+        );
     }
 }
 

@@ -11,8 +11,8 @@ module.exports = require('./webpack.base')({
 
     // Add hot reloading in development
     entry: [
-    // use that if you need to support IE11
-    // require.resolve('react-app-polyfill/ie11'),
+        // use that if you need to support IE11
+        // require.resolve('react-app-polyfill/ie11'),
         path.join(process.cwd(), 'src/index.js') // Start with js/index.js
     ],
 
@@ -22,9 +22,7 @@ module.exports = require('./webpack.base')({
         chunkFilename: '[name].chunk.js'
     },
 
-    devServer: {
-        contentBase: './build'
-    },
+    devServer: {},
 
     optimization: {
         splitChunks: {
