@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = require('./webpack.base')({
     mode: 'production',
 
@@ -14,7 +16,9 @@ module.exports = require('./webpack.base')({
     },
 
     // Add production plugins
-    plugins: [],
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin()
+    ],
 
     devtool: false,
 
