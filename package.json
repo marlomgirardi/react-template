@@ -14,8 +14,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
 
-    "validate": "npm-run-all --parallel test lint:fix",
-    "precommit": "npm run lint"
+    "validate": "npm-run-all --parallel test lint:fix"
   },
   "repository": {
     "type": "git",
@@ -71,6 +70,6 @@
     "react-dom": "^16.8.4"
   },
   "husky": {
-    "pre-commit": "echo 1 | exit 0"
+    "pre-commit": "npm run validate"
   }
 }
