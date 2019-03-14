@@ -42,23 +42,15 @@ module.exports = api => {
             }
         ],
 
-
         '@babel/plugin-transform-react-jsx-source' // Better stacks for error boundaries
 
         // Will I use?
         // https://babeljs.io/docs/en/babel-plugin-proposal-decorators
         // https://babeljs.io/docs/en/babel-plugin-proposal-do-expressions
-        // https://babeljs.io/docs/en/babel-plugin-proposal-export-default-from
-        // https://babeljs.io/docs/en/babel-plugin-proposal-export-namespace-from
         // https://babeljs.io/docs/en/babel-plugin-proposal-function-bind
-        // https://babeljs.io/docs/en/babel-plugin-proposal-function-sent
         // https://babeljs.io/docs/en/babel-plugin-proposal-logical-assignment-operators
         // https://babeljs.io/docs/en/babel-plugin-proposal-nullish-coalescing-operator
-        // https://babeljs.io/docs/en/babel-plugin-proposal-numeric-separator
-        // https://babeljs.io/docs/en/babel-plugin-proposal-pipeline-operator
         // https://babeljs.io/docs/en/babel-plugin-proposal-private-methods
-        // https://babeljs.io/docs/en/babel-plugin-proposal-throw-expressions
-        // https://babeljs.io/docs/en/babel-plugin-syntax-dynamic-import
     ];
 
     return {
