@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import App from './App';
+import App from './components/App';
 
-import './global.scss';
+import './styles/index.scss';
 
 ReactDOM.render(
     (

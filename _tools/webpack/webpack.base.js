@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const SizePlugin = require('size-plugin');
 
 module.exports = options => ({
     mode: options.mode,
@@ -115,6 +116,7 @@ module.exports = options => ({
         // This simplifies creation of HTML files to serve your webpack bundles
         new HtmlWebpackPlugin({
             inject: true,
+            minify: process.env.NODE_ENV === 'production',
             template: './src/index.html',
             filename: './index.html'
         }),
@@ -127,7 +129,10 @@ module.exports = options => ({
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),
                 DEBUG: process.env.DEBUG === 'true'
             }
-        })
+        }),
+
+        // Show file output
+        new SizePlugin()
     ]),
     resolve: {
         modules: ['node_modules', 'src'],

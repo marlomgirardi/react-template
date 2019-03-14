@@ -29,7 +29,21 @@ module.exports = api => {
         '@babel/plugin-proposal-class-properties',
 
         // https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining
-        '@babel/plugin-proposal-optional-chaining'
+        '@babel/plugin-proposal-optional-chaining',
+
+        // https://www.styled-components.com/docs/tooling#usage
+        [
+            'babel-plugin-styled-components', {
+                ssr: false,
+                displayName: true,
+                minify: false,
+                pure: true,
+                transpileTemplateLiterals: true
+            }
+        ],
+
+
+        '@babel/plugin-transform-react-jsx-source' // Better stacks for error boundaries
 
         // Will I use?
         // https://babeljs.io/docs/en/babel-plugin-proposal-decorators
