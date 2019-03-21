@@ -127,6 +127,7 @@ module.exports = {
         // /!\ Enforce our component methods order
         'react/sort-comp': ['warn', {
             'order': [
+                'instance-variables',
                 'static-methods',
                 'lifecycle',
                 'event-handlers',

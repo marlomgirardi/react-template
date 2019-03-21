@@ -13,8 +13,7 @@ module.exports = api => {
             // https://babeljs.io/docs/en/babel-preset-env
             '@babel/env', {
                 debug: process.env.DEBUG === 'true',
-                targets: '> 5%, not ie 11, last 2 Safari versions and > .5%, last 2 Edge versions and > .5%',
-                useBuiltIns: 'usage'
+                targets: '> 5%, not ie 11, last 2 Safari versions and > .5%, last 2 Edge versions and > .5%'
             }
         ]
     ];
