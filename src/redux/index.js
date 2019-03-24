@@ -1,6 +1,3 @@
-// eslint-disable global-require */
-// global require, module, window, process */
-
 import { createStore, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
@@ -25,7 +22,12 @@ function configureStoreDev(initialState) {
     const sagaMiddleware = createSagaMiddleware();
 
     // add support for Redux dev tools
-    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+        ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+            trace: process.env.DEBUG,
+            traceLimit: 15
+        })
+        : compose;
 
     const middleware = [
         // Redux middleware that spits an error on you when you try
