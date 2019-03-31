@@ -1,5 +1,3 @@
-const webpack = require('webpack');
-
 module.exports = require('./webpack.base')({
     mode: 'production',
 
@@ -12,13 +10,15 @@ module.exports = require('./webpack.base')({
     optimization: {
         splitChunks: {
             chunks: 'all'
-        }
+        },
+        minimize: true
+
+        // minimizer,
+        // https://webpack.js.org/configuration/optimization/#optimizationminimizer
     },
 
     // Add production plugins
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin()
-    ],
+    plugins: [],
 
     devtool: false,
 

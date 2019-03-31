@@ -8,8 +8,8 @@
     "prebuild": "rimraf ./build",
     "build": "cross-env NODE_ENV=production webpack --config ./_tools/webpack/webpack.prod.js",
     "test": "echo \"TODO\"",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint . --ignore-path .gitignore",
+    "lint:fix": "eslint . --ignore-path .gitignore --fix",
     "validate": "npm-run-all --parallel test lint:fix"
   },
   "repository": {

@@ -113,14 +113,6 @@ module.exports = options => ({
         ]
     },
     plugins: options.plugins.concat([
-        // This simplifies creation of HTML files to serve your webpack bundles
-        new HtmlWebpackPlugin({
-            inject: true,
-            minify: process.env.NODE_ENV === 'production',
-            template: './src/index.html',
-            filename: './index.html'
-        }),
-
         // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
         // inside your code for any environment checks; Terser will automatically
         // drop any unreachable code.
@@ -139,6 +131,21 @@ module.exports = options => ({
         extensions: ['.js', '.jsx'],
         mainFields: ['browser', 'jsnext:main', 'main'],
         plugins: [
+            // This simplifies creation of HTML files to serve your webpack bundles
+            new HtmlWebpackPlugin({
+                inject: true,
+                minify: {
+
+                    // Collapse white space that contributes to text nodes in a document tree
+                    collapseWhitespace: true,
+
+                    // Strip HTML comments
+                    removeComments: true
+                },
+                template: './src/index.html',
+                filename: './index.html'
+            }),
+
             // Use components without redundant names.
             // import Comp from "./Comp/Comp"
             // can be import Compo from "./Comp" with this plugin
