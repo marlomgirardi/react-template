@@ -51,16 +51,6 @@ module.exports = {
         // /!\ Disallow providing the 10 radix
         'radix': ['warn', 'as-needed'],
 
-        // Enforce valid JSDoc comments
-        'valid-jsdoc': [
-            'error', {
-                'prefer': { 'return': 'returns' }, // Enforce the word returns instead of return
-                'requireReturn': false, // Does not require return for every method
-                'requireParamDescription': false, // Does not require return description
-                'requireReturnDescription': false // Does not require param description
-            }
-        ],
-
         // Disallow Yoda Conditions
         'yoda': 'error'
     }
