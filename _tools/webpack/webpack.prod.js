@@ -1,3 +1,5 @@
+const TerserPlugin = require('terser-webpack-plugin');
+
 module.exports = require('./webpack.base')({
     mode: 'production',
 
@@ -11,10 +13,13 @@ module.exports = require('./webpack.base')({
         splitChunks: {
             chunks: 'all'
         },
-        minimize: true
-
-        // minimizer,
-        // https://webpack.js.org/configuration/optimization/#optimizationminimizer
+        minimizer: [
+            // https://webpack.js.org/plugins/terser-webpack-plugin/
+            new TerserPlugin({
+                cache: true,
+                parallel: true
+            })
+        ]
     },
 
     // Add production plugins
