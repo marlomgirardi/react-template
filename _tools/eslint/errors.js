@@ -28,6 +28,21 @@ module.exports = {
         // Disallow a duplicate case label
         'no-duplicate-case': 'error',
 
+        // Disallow unnecessary boolean casts
+        'no-extra-boolean-cast': 'error',
+
+        // Disallow extra parens
+        'no-extra-parens': [
+            'error',
+            'all',
+            {
+                ignoreJSX: 'multi-line'
+            }
+        ],
+
+        // Prevent inner declaration
+        'no-inner-declarations': 'error',
+
         // Disallow empty statement
         'no-empty': 'error',
 
@@ -43,10 +58,22 @@ module.exports = {
         // Disallow sparse arrays
         'no-sparse-arrays': 'error',
 
+        // Disallow template literal placeholder syntax in regular strings
+        'no-template-curly-in-string': 'error',
+
         // Disallow unreachable code after return, throw, continue, and break statements
         'no-unreachable': 'error',
 
+        // Disallow confusing multiline expressions
+        'no-unexpected-multiline': 'error',
+
+        // require calls to isNaN() when checking for NaN
+        'use-isnan': 'error',
+
+        // Disallow assignments that can lead to race conditions due to usage of await or yield
+        'require-atomic-updates': 'error',
+
         // Enforce comparing typeof expressions against valid strings
-        'valid-typeof': ['error', { 'requireStringLiterals': true }]
+        'valid-typeof': ['error', { requireStringLiterals: true }]
     }
 };

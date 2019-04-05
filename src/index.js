@@ -11,13 +11,11 @@ import './styles/index.scss';
 const store = configureStore({});
 
 ReactDOM.render(
-    (
-        <AppContainer>
-            <Provider store={store}>
-                <App />
-            </Provider>
-        </AppContainer>
-    ),
+    <AppContainer>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </AppContainer>,
     document.getElementById('app')
 );
 
