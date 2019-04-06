@@ -9,8 +9,8 @@ module.exports = options => ({
     mode: options.mode,
 
     entry: [
-        // use that if you need to support IE11
-        // require.resolve('react-app-polyfill/ie11'),
+        // Use that if you need to support IE11
+        // Require.resolve('react-app-polyfill/ie11'),
         path.join(process.cwd(), 'src/index.js') // Start with js/index.js
     ],
 
@@ -24,7 +24,6 @@ module.exports = options => ({
     optimization: options.optimization,
     module: {
         rules: [
-
             // Transform all .js files required somewhere with Babel
             {
                 test: /\.js$/,
@@ -62,54 +61,53 @@ module.exports = options => ({
                         }
                     },
 
-                    // compiles Sass to CSS, using Node Sass by default
+                    // Compiles Sass to CSS, using Node Sass by default
                     'sass-loader'
                 ]
             }
 
             // {
-            //     test: /\.(eot|otf|ttf|woff|woff2)$/,
-            //     use: 'file-loader'
+            //     Test: /\.(eot|otf|ttf|woff|woff2)$/,
+            //     Use: 'file-loader'
             // },
 
             // {
-            //     test: /\.(jpg|png|gif)$/,
-            //     use: [
+            //     Test: /\.(jpg|png|gif)$/,
+            //     Use: [
             //         {
-            //             loader: 'url-loader',
-            //             options: {
+            //             Loader: 'url-loader',
+            //             Options: {
 
             //                 // Inline files smaller than 10 kB
-            //                 limit: 10 * 1024
+            //                 Limit: 10 * 1024
             //             }
             //         },
             //         {
-            //             loader: 'image-webpack-loader',
-            //             options: {
-            //                 mozjpeg: {
+            //             Loader: 'image-webpack-loader',
+            //             Options: {
+            //                 Mozjpeg: {
 
             //                     // NOTE: mozjpeg may causes errors in some Linux environments
-            //                     enabled: true,
-            //                     progressive: true
+            //                     Enabled: true,
+            //                     Progressive: true
             //                 },
-            //                 gifsicle: {
-            //                     interlaced: false
+            //                 Gifsicle: {
+            //                     Interlaced: false
             //                 },
-            //                 optipng: {
-            //                     optimizationLevel: 7
+            //                 Optipng: {
+            //                     OptimizationLevel: 7
             //                 },
-            //                 pngquant: {
-            //                     quality: '65-90',
-            //                     speed: 4
+            //                 Pngquant: {
+            //                     Quality: '65-90',
+            //                     Speed: 4
             //                 },
-            //                 webp: {
-            //                     quality: 75
+            //                 Webp: {
+            //                     Quality: 75
             //                 }
             //             }
             //         }
             //     ]
             // }
-
         ]
     },
     plugins: options.plugins.concat([
@@ -129,8 +127,8 @@ module.exports = options => ({
         }),
 
         // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
-        // inside your code for any environment checks; Terser will automatically
-        // drop any unreachable code.
+        // Inside your code for any environment checks; Terser will automatically
+        // Drop any unreachable code.
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),
@@ -146,10 +144,9 @@ module.exports = options => ({
         extensions: ['.js', '.jsx'],
         mainFields: ['browser', 'jsnext:main', 'main'],
         plugins: [
-
             // Use components without redundant names.
-            // import Comp from "./Comp/Comp"
-            // can be import Compo from "./Comp" with this plugin
+            // Import Comp from "./Comp/Comp"
+            // Can be import Compo from "./Comp" with this plugin
             new DirectoryNamedWebpackPlugin()
         ]
     },

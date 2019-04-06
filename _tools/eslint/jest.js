@@ -1,13 +1,9 @@
 module.exports = {
 
-    // env: {
+    // Env: {
     //     'jest/globals': true
     // },
-
-    // plugins: ['jest'],
-
-    // extends: 'plugin:jest/recommended',
-
-    // rules: {}
-
+    // Plugins: ['jest'],
+    // Extends: 'plugin:jest/recommended',
+    // Rules: {}
 };

@@ -8,8 +8,8 @@
     "prebuild": "rimraf ./build",
     "build": "cross-env NODE_ENV=production webpack --config ./_tools/webpack/webpack.prod.js",
     "test": "echo \"TODO\"",
-    "lint": "eslint . --ignore-path .gitignore",
-    "lint:fix": "eslint . --ignore-path .gitignore --fix",
+    "lint": "eslint . --ignore-path .gitignore src/**/*.js",
+    "lint:fix": "eslint . --ignore-path .gitignore src/**/*.js --fix",
     "validate": "npm-run-all --parallel test lint:fix"
   },
   "repository": {
@@ -44,6 +44,7 @@
     "css-loader": "^2.1.1",
     "directory-named-webpack-plugin": "^4.0.1",
     "eslint": "^5.16.0",
+    "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsdoc": "^4.8.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",

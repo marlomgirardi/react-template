@@ -7,8 +7,11 @@ module.exports = {
         // Disallow use of undeclared variables unless mentioned in a /* global */ block
         'no-undef': 'error',
 
+        // Disallow Initializing to undefined
+        'no-undef-init': 'error',
+
         // Disallow declaration of variables that are not used in the code
-        'no-unused-vars': ['error', { 'vars': 'all' }],
+        'no-unused-vars': ['error', { vars: 'all' }],
 
         // /!\ Disallow early use for variables and classes
         'no-use-before-define': ['warn', 'nofunc'],

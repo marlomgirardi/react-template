@@ -4,14 +4,16 @@ module.exports = api => {
     const presets = [
         [
             // https://babeljs.io/docs/en/babel-preset-react
-            '@babel/react', {
+            '@babel/react',
+            {
                 development: true,
                 throwIfNamespace: true
             }
         ],
         [
             // https://babeljs.io/docs/en/babel-preset-env
-            '@babel/env', {
+            '@babel/env',
+            {
                 debug: process.env.DEBUG === 'true',
                 targets: '> 5%, not ie 11, last 2 Safari versions and > .5%, last 2 Edge versions and > .5%'
             }
@@ -32,7 +34,8 @@ module.exports = api => {
 
         // https://www.styled-components.com/docs/tooling#usage
         [
-            'babel-plugin-styled-components', {
+            'babel-plugin-styled-components',
+            {
                 ssr: false,
                 displayName: true,
                 minify: false,

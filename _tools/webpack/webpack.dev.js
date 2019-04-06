@@ -22,7 +22,6 @@ module.exports = require('./webpack.base')({
 
     // Add development plugins
     plugins: [
-
         // Detect modules with circular dependencies when bundling with webpack.
         new CircularDependencyPlugin({
             exclude: /node_modules/,

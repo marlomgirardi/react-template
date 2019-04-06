@@ -3,11 +3,7 @@ module.exports = {
 
     extends: 'plugin:react/recommended',
 
-    parserOptions: {
-        ecmaFeatures: {
-            jsx: true
-        }
-    },
+    parserOptions: { ecmaFeatures: { jsx: true } },
 
     rules: {
 
@@ -32,11 +28,11 @@ module.exports = {
         'react/no-direct-mutation-state': 'error',
 
         // Prevent usage of isMounted. isMounted is an anti-pattern, is not available when using ES6 classes, and it is
-        // on its way to being officially deprecated.
+        // On its way to being officially deprecated.
         'react/no-is-mounted': 'error',
 
         // Prevent multiple component definition per file
-        'react/no-multi-comp': ['error', { 'ignoreStateless': true }],
+        'react/no-multi-comp': ['error', { ignoreStateless: true }],
 
         // Prevent using string references
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md
@@ -108,15 +104,18 @@ module.exports = {
         'react/jsx-pascal-case': 'error',
 
         // Prevent missing parentheses around multiline JSX
-        'react/jsx-wrap-multilines': ['error', {
-            'declaration': 'parens-new-line',
-            'assignment': 'parens-new-line',
-            'return': 'parens-new-line',
-            'arrow': 'parens-new-line',
-            'condition': 'parens-new-line',
-            'logical': 'parens-new-line',
-            'prop': 'parens-new-line'
-        }],
+        'react/jsx-wrap-multilines': [
+            'error',
+            {
+                declaration: 'parens-new-line',
+                assignment: 'parens-new-line',
+                return: 'parens-new-line',
+                arrow: 'parens-new-line',
+                condition: 'parens-new-line',
+                logical: 'parens-new-line',
+                prop: 'parens-new-line'
+            }
+        ],
 
         // /!\ Prevent usage of the return value of React.render
         'react/no-render-return-value': 'warn',
@@ -125,25 +124,23 @@ module.exports = {
         'react/display-name': 'warn',
 
         // /!\ Enforce our component methods order
-        'react/sort-comp': ['warn', {
-            'order': [
-                'instance-variables',
-                'static-methods',
-                'lifecycle',
-                'event-handlers',
-                'everything-else',
-                'rendering'
-            ],
-            'groups': {
-                'event-handlers': [
-                    '/^_?on.+$/'
+        'react/sort-comp': [
+            'warn',
+            {
+                order: [
+                    'instance-variables',
+                    'static-methods',
+                    'lifecycle',
+                    'event-handlers',
+                    'everything-else',
+                    'rendering'
                 ],
-                'rendering': [
-                    '/^_?render.+$/',
-                    'render'
-                ]
+                groups: {
+                    'event-handlers': ['/^_?on.+$/'],
+                    rendering: ['/^_?render.+$/', 'render']
+                }
             }
-        }]
+        ]
     },
 
     settings: {

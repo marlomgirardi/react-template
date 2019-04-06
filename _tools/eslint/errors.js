@@ -32,13 +32,7 @@ module.exports = {
         'no-extra-boolean-cast': 'error',
 
         // Disallow extra parens
-        'no-extra-parens': [
-            'error',
-            'all',
-            {
-                ignoreJSX: 'multi-line'
-            }
-        ],
+        'no-extra-parens': ['error', 'all', { ignoreJSX: 'multi-line' }],
 
         // Prevent inner declaration
         'no-inner-declarations': 'error',
@@ -67,7 +61,7 @@ module.exports = {
         // Disallow confusing multiline expressions
         'no-unexpected-multiline': 'error',
 
-        // require calls to isNaN() when checking for NaN
+        // Require calls to isNaN() when checking for NaN
         'use-isnan': 'error',
 
         // Disallow assignments that can lead to race conditions due to usage of await or yield
