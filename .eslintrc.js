@@ -1,9 +1,7 @@
 module.exports = {
     parser: 'babel-eslint',
 
-    plugins: [
-        'jsdoc'
-    ],
+    plugins: ['jsdoc'],
 
     env: {
         browser: true,

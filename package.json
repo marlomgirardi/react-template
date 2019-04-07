@@ -44,6 +44,7 @@
     "css-loader": "^2.1.1",
     "directory-named-webpack-plugin": "^4.0.1",
     "eslint": "^5.16.0",
+    "eslint-import-resolver-webpack": "^0.11.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsdoc": "^4.8.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",

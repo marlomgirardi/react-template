@@ -154,9 +154,6 @@ module.exports = {
         // Enforce consistent line breaks inside function parentheses
         'function-paren-newline': ['error', 'multiline'],
 
-        // Enforce capitalization of the first letter of a comment
-        'capitalized-comments': ['error', 'always'],
-
         // Require spacing between template tags and their literals
         'template-tag-spacing': ['error', 'always'],
 

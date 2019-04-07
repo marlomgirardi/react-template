@@ -10,6 +10,16 @@ module.exports = {
         sourceType: 'module'
     },
 
+    settings: {
+
+        // Follow webpack resolver roles, it includes DirectoryNamedWebpackPlugin
+        'import/resolver': {
+            webpack: {
+                config: './_tools/webpack/webpack.dev.js'
+            }
+        }
+    },
+
     rules: {
 
         // Disallow modifying variables that are declared using const
@@ -86,8 +96,7 @@ module.exports = {
         'import/named': 'error',
 
         // Ensures an imported module can be resolved to a module on the local filesystem
-        // TODO: Fix issue related to DirectoryNamedWebpackPlugin
-        'import/no-unresolved': 'off',
+        'import/no-unresolved': 'error',
 
         // Forbids the use of mutable exports with var or let
         'import/no-mutable-exports': 'error',
