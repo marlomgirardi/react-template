@@ -16,5 +16,4 @@ trim_trailing_whitespace = false
 # Matches the exact files either .json and .yml
 [*.{json,yml}]
 indent_style = space
-indent_size = 2
 insert_final_newline = false

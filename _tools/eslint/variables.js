@@ -19,4 +19,4 @@ module.exports = {
         // /!\ Require Variable Declarations to be at the top of their scope
         'vars-on-top': 'warn'
     }
-};
+}

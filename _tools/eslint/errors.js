@@ -70,4 +70,4 @@ module.exports = {
         // Enforce comparing typeof expressions against valid strings
         'valid-typeof': ['error', { requireStringLiterals: true }]
     }
-};
+}

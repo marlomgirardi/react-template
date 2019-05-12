@@ -122,4 +122,4 @@ module.exports = {
         //  Enforce imports to be first
         'import/first': 'error'
     }
-};
+}

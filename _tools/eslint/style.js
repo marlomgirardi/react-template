@@ -75,7 +75,7 @@ module.exports = {
         quotes: ['error', 'single'],
 
         // Requires the usage of semicolons
-        semi: ['error', 'always'],
+        semi: ['error', 'never'],
 
         // Enforce space between keys and values in object literal properties
         // http://eslint.org/docs/rules/key-spacing
@@ -160,4 +160,4 @@ module.exports = {
         // Require space before blocks
         'space-before-blocks': 'error'
     }
-};
+}

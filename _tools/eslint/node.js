@@ -6,4 +6,4 @@ module.exports = {
         // Node.js enforce require() on top-level module scope
         'global-require': 'off'
     }
-};
+}

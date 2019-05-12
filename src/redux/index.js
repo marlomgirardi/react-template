@@ -1,21 +1,21 @@
-import { createStore, compose, applyMiddleware } from 'redux';
-import createSagaMiddleware from 'redux-saga';
+import { createStore, compose, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
 
-import rootReducer from './reducers';
-import rootSaga from './sagas';
+import rootReducer from './reducers'
+import rootSaga from './sagas'
 
 function configureStoreProd(initialState) {
-    const sagaMiddleware = createSagaMiddleware();
-    const middleware = [sagaMiddleware];
+    const sagaMiddleware = createSagaMiddleware()
+    const middleware = [sagaMiddleware]
 
-    const store = createStore(rootReducer, initialState, compose(applyMiddleware(...middleware)));
+    const store = createStore(rootReducer, initialState, compose(applyMiddleware(...middleware)))
 
-    sagaMiddleware.run(rootSaga);
-    return store;
+    sagaMiddleware.run(rootSaga)
+    return store
 }
 
 function configureStoreDev(initialState) {
-    const sagaMiddleware = createSagaMiddleware();
+    const sagaMiddleware = createSagaMiddleware()
 
     // Add support for Redux dev tools
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -23,7 +23,7 @@ function configureStoreDev(initialState) {
             trace: process.env.DEBUG,
             traceLimit: 15
         })
-        : compose;
+        : compose
 
     const middleware = [
         // Redux middleware that spits an error on you when you try
@@ -31,9 +31,9 @@ function configureStoreDev(initialState) {
         require('redux-immutable-state-invariant').default(),
 
         sagaMiddleware
-    ];
+    ]
 
-    const store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(...middleware)));
+    const store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(...middleware)))
 
     // If (module.hot) {
     //     // Enable Webpack hot module replacement for reducers
@@ -42,8 +42,8 @@ function configureStoreDev(initialState) {
     //     });
     // }
 
-    sagaMiddleware.run(rootSaga);
-    return store;
+    sagaMiddleware.run(rootSaga)
+    return store
 }
 
-export default process.env.NODE_ENV === 'production' ? configureStoreProd : configureStoreDev;
+export default process.env.NODE_ENV === 'production' ? configureStoreProd : configureStoreDev

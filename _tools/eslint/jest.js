@@ -6,4 +6,4 @@ module.exports = {
     // Plugins: ['jest'],
     // Extends: 'plugin:jest/recommended',
     // Rules: {}
-};
+}
