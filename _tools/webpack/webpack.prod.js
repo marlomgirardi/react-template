@@ -1,4 +1,5 @@
 const TerserPlugin = require('terser-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = require('./webpack.base')({
     mode: 'production',
@@ -23,7 +24,14 @@ module.exports = require('./webpack.base')({
     },
 
     // Add production plugins
-    plugins: [],
+    plugins: [
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            excludeAssets: null, // {String\|RegExp\|function}
+            logLevel: 'warn',
+            openAnalyzer: false
+        })
+    ],
 
     devtool: false,
 

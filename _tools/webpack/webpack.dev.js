@@ -1,5 +1,4 @@
 const CircularDependencyPlugin = require('circular-dependency-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 // Easy way to have colors in terminal
 require('colors')
@@ -33,13 +32,6 @@ module.exports = require('./webpack.base')({
             onDetected({ paths, compilation }) {
                 compilation.errors.push(new Error(paths.join(' > ').red))
             }
-        }),
-
-        new BundleAnalyzerPlugin({
-            analyzerMode: 'static',
-            excludeAssets: null, // {String\|RegExp\|function}
-            logLevel: 'warn',
-            openAnalyzer: false
         })
     ],
 
