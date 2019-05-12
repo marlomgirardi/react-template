@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
-import { Provider } from 'react-redux';
-import configureStore from './redux';
-import App from './components/App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
+import { Provider } from 'react-redux'
+import configureStore from './redux'
+import App from './components/App'
 
-import './styles/index.scss';
+import './styles/index.scss'
 
 // TODO: Initial State
-const store = configureStore({});
+const store = configureStore({})
 
 ReactDOM.render(
     <AppContainer>
@@ -17,6 +17,11 @@ ReactDOM.render(
         </Provider>
     </AppContainer>,
     document.getElementById('app')
-);
+)
 
-module.hot && module.hot.accept();
+if (process.env.NODE_ENV !== 'production') {
+    const { whyDidYouUpdate } = require('why-did-you-update')
+    whyDidYouUpdate(React)
+
+    module.hot && module.hot.accept()
+}
