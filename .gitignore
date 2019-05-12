@@ -5,5 +5,5 @@
 *.log*
 
 # Project
-build/
+dist/
 node_modules/

@@ -1,7 +1,8 @@
-const CircularDependencyPlugin = require('circular-dependency-plugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 // Easy way to have colors in terminal
-require('colors');
+require('colors')
 
 module.exports = require('./webpack.base')({
     mode: 'development',
@@ -12,7 +13,9 @@ module.exports = require('./webpack.base')({
         chunkFilename: '[name].chunk.js'
     },
 
-    devServer: {},
+    devServer: {
+        contentBase: './dist'
+    },
 
     optimization: {
         splitChunks: {
@@ -28,8 +31,15 @@ module.exports = require('./webpack.base')({
             failOnError: true,
             cwd: process.cwd(),
             onDetected({ paths, compilation }) {
-                compilation.errors.push(new Error(paths.join(' > ').red));
+                compilation.errors.push(new Error(paths.join(' > ').red))
             }
+        }),
+
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            excludeAssets: null, // {String\|RegExp\|function}
+            logLevel: 'warn',
+            openAnalyzer: false
         })
     ],
 
@@ -40,4 +50,4 @@ module.exports = require('./webpack.base')({
     performance: {
         hints: false
     }
-});
+})

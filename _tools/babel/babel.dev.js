@@ -1,5 +1,5 @@
 module.exports = api => {
-    api.cache(true);
+    api.cache(true)
 
     const presets = [
         [
@@ -15,10 +15,13 @@ module.exports = api => {
             '@babel/env',
             {
                 debug: process.env.DEBUG === 'true',
-                targets: '> 5%, not ie 11, last 2 Safari versions and > .5%, last 2 Edge versions and > .5%'
+                targets:
+                    '> 5%, not ie 11, last 2 iOS versions, last 2 Safari versions,'
+                    + 'last 2 Edge versions, last 2 firefox versions',
+                modules: false
             }
         ]
-    ];
+    ]
 
     const plugins = [
         // Plugin list: https://babeljs.io/docs/en/plugins
@@ -53,10 +56,10 @@ module.exports = api => {
         // https://babeljs.io/docs/en/babel-plugin-proposal-logical-assignment-operators
         // https://babeljs.io/docs/en/babel-plugin-proposal-nullish-coalescing-operator
         // https://babeljs.io/docs/en/babel-plugin-proposal-private-methods
-    ];
+    ]
 
     return {
         presets,
         plugins
-    };
-};
+    }
+}

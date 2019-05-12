@@ -7,7 +7,7 @@ module.exports = () => {
                 targets: '> 5%, last 2 Safari versions and > .5%, last 2 Edge versions and > .5%'
             }
         ]
-    ];
+    ]
 
     const plugins = [
         // https://babeljs.io/docs/en/next/babel-plugin-proposal-class-properties.html
@@ -35,10 +35,10 @@ module.exports = () => {
                 transpileTemplateLiterals: true
             }
         ]
-    ];
+    ]
 
     return {
         presets,
         plugins
-    };
-};
+    }
+}

@@ -1,9 +1,9 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
-const autoprefixer = require('autoprefixer');
-const SizePlugin = require('size-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin')
+const autoprefixer = require('autoprefixer')
+const SizePlugin = require('size-plugin')
 
 module.exports = options => ({
     mode: options.mode,
@@ -17,7 +17,7 @@ module.exports = options => ({
     output: {
 
         // Compile into js/build.js
-        path: path.resolve('build'),
+        path: path.resolve('dist'),
         publicPath: '/',
         ...options.output
     }, // Merge with env dependent settings
@@ -26,9 +26,16 @@ module.exports = options => ({
         rules: [
             // Transform all .js files required somewhere with Babel
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: 'babel-loader'
+            },
+
+            // Force every one to be aware of the lint roles but slow down the build process.
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                use: 'eslint-loader'
             },
 
             // SCSS to CSS
@@ -156,4 +163,4 @@ module.exports = options => ({
     target: 'web', // Make web variables accessible to webpack, e.g. window
 
     performance: options.performance || {}
-});
+})

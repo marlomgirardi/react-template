@@ -1,12 +1,12 @@
-const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = require('./webpack.base')({
     mode: 'production',
 
     // Don't use hashes in dev mode for better performance
     output: {
-        filename: '[name].js',
-        chunkFilename: '[name].chunk.js'
+        filename: '[name].[contenthash].js',
+        chunkFilename: '[name].[contenthash].js'
     },
 
     optimization: {
@@ -30,4 +30,4 @@ module.exports = require('./webpack.base')({
     performance: {
         hints: false
     }
-});
+})

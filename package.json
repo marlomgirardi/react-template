@@ -45,6 +45,7 @@
     "directory-named-webpack-plugin": "^4.0.1",
     "eslint": "^5.16.0",
     "eslint-import-resolver-webpack": "^0.11.1",
+    "eslint-loader": "^2.1.2",
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jsdoc": "^4.8.4",
     "eslint-plugin-jsx-a11y": "^6.2.1",
@@ -63,8 +64,10 @@
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.2.3",
     "webpack": "^4.31.0",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.3.1"
+    "webpack-dev-server": "^3.3.1",
+    "why-did-you-update": "^1.0.6"
   },
   "dependencies": {
     "react": "^16.8.6",
