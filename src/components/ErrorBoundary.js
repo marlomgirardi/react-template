@@ -1,17 +1,21 @@
 /* eslint-disable no-console */ // FIXME: Remove it
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 /**
  * This is a generic error boundary to be used as last resource.
  */
-class ErrorBoundary extends Component {
-    state = { hasError: false }
-
+class ErrorBoundary extends PureComponent {
     static getDerivedStateFromError(error) {
         console.log('getDerivedStateFromError', error)
         return { hasError: true }
     }
+
+    static propTypes = {
+        children: PropTypes.element
+    }
+
+    state = { hasError: false }
 
     componentDidCatch(error, info) {
         // TODO: log stuff
@@ -25,10 +29,6 @@ class ErrorBoundary extends Component {
 
         return this.props.children
     }
-}
-
-ErrorBoundary.propTypes = {
-    children: PropTypes.element
 }
 
 export default ErrorBoundary

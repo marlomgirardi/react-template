@@ -22,6 +22,12 @@ module.exports = require('./webpack.base')({
         }
     },
 
+    resolve: {
+        alias: {
+            'react-dom': '@hot-loader/react-dom'
+        }
+    },
+
     // Add development plugins
     plugins: [
         // Detect modules with circular dependencies when bundling with webpack.

@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
     env: { es6: true },
 
@@ -15,7 +17,7 @@ module.exports = {
         // Follow webpack resolver roles, it includes DirectoryNamedWebpackPlugin
         'import/resolver': {
             webpack: {
-                config: './_tools/webpack/webpack.dev.js'
+                config: path.resolve(__dirname, '..', 'webpack/webpack.dev.js')
             }
         }
     },
@@ -114,7 +116,9 @@ module.exports = {
         'import/newline-after-import': 'error',
 
         // Enforce a convention in the order of require() / import statements
-        'import/order': 'error',
+        'import/order': ['error', {
+            groups: ['builtin', ['external', 'internal'], 'unknown', 'parent', 'sibling', 'index']
+        }],
 
         // Enforce exports to be last
         'import/exports-last': 'error',

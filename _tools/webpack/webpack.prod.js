@@ -1,8 +1,9 @@
-const TerserPlugin = require('terser-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = require('./webpack.base')({
     mode: 'production',
+
+    devtool: false,
 
     // Don't use hashes in dev mode for better performance
     output: {
@@ -10,18 +11,8 @@ module.exports = require('./webpack.base')({
         chunkFilename: '[name].[contenthash].js'
     },
 
-    optimization: {
-        splitChunks: {
-            chunks: 'all'
-        },
-        minimizer: [
-            // https://webpack.js.org/plugins/terser-webpack-plugin/
-            new TerserPlugin({
-                cache: true,
-                parallel: true
-            })
-        ]
-    },
+    // More optimization details here: https://webpack.js.org/configuration/optimization/
+    optimization: {},
 
     // Add production plugins
     plugins: [
@@ -32,8 +23,6 @@ module.exports = require('./webpack.base')({
             openAnalyzer: false
         })
     ],
-
-    devtool: false,
 
     performance: {
         hints: false

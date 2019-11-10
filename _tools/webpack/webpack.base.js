@@ -6,7 +6,7 @@ const autoprefixer = require('autoprefixer')
 const SizePlugin = require('size-plugin')
 
 module.exports = options => ({
-    mode: options.mode,
+    ...options,
 
     entry: [
         // Use that if you need to support IE11
@@ -21,7 +21,7 @@ module.exports = options => ({
         publicPath: '/',
         ...options.output
     }, // Merge with env dependent settings
-    optimization: options.optimization,
+
     module: {
         rules: [
             // Transform all .js files required somewhere with Babel
@@ -48,9 +48,10 @@ module.exports = options => ({
                     // CSS module enabled
                     {
                         loader: 'css-loader',
-                        query: {
-                            modules: true,
-                            localIdentName: '[name]__[local]--[hash:base64:5]'
+                        options: {
+                            modules: {
+                                localIdentName: '[name]__[local]--[hash:base64:5]'
+                            }
                         }
                     },
 
@@ -62,7 +63,8 @@ module.exports = options => ({
                             sourceMap: true,
                             plugins: () => [
                                 autoprefixer({
-                                    browsers: '> 5%, last 2 Safari versions and > .5%, last 2 Edge versions and > .5%'
+                                    overrideBrowserslist:
+                                        '>2%, last 2 Chrome major versions, last 2 Firefox major versions, last 2 Safari major versions, last 2 Edge major versions, last 3 Android major versions, last 3 ChromeAndroid major versions, last 2 iOS major versions' // eslint-disable-line max-len
                                 })
                             ]
                         }
@@ -138,7 +140,6 @@ module.exports = options => ({
         // Drop any unreachable code.
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: JSON.stringify(process.env.NODE_ENV),
                 DEBUG: process.env.DEBUG === 'true'
             }
         }),
@@ -146,7 +147,9 @@ module.exports = options => ({
         // Show file output
         new SizePlugin()
     ]),
+
     resolve: {
+        ...options.resolve,
         modules: ['node_modules', 'src'],
         extensions: ['.js', '.jsx'],
         mainFields: ['browser', 'jsnext:main', 'main'],
@@ -154,13 +157,10 @@ module.exports = options => ({
             // Use components without redundant names.
             // Import Comp from "./Comp/Comp"
             // Can be import Compo from "./Comp" with this plugin
+            // This way you will not have a bunch of index.js as well.
             new DirectoryNamedWebpackPlugin()
         ]
     },
 
-    devtool: options.devtool,
-
-    target: 'web', // Make web variables accessible to webpack, e.g. window
-
-    performance: options.performance || {}
+    target: 'web' // Make web variables accessible to webpack, e.g. window
 })
