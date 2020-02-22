@@ -1,7 +1,14 @@
-module.exports = {
-    parser: 'babel-eslint',
+const path = require('path');
 
-    plugins: ['jsdoc'],
+module.exports = {
+    settings: {
+        // Follow webpack resolver roles, it includes DirectoryNamedWebpackPlugin
+        'import/resolver': {
+            webpack: {
+                config: path.resolve(__dirname, '_tools/webpack/webpack.dev.js')
+            }
+        }
+    },
 
     env: {
         browser: true,
@@ -9,7 +16,7 @@ module.exports = {
         jest: true
     },
 
-    extends: require('./_tools/eslint'),
+    extends: ['mg/babel', 'mg/react'],
 
     globals: {
         Atomics: 'readonly',

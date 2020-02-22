@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
 // TODO: Reducers
 export default combineReducers({
-    demo: () => null
-})
+  demo: () => null,
+});

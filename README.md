@@ -8,9 +8,6 @@ This is my personal React boilerplate with everything that ***I*** need.
 
 ## 📦 Project defaults
 
-webpack base works out of the box for projects with projects that use the
-default project structure:
-
 ```
 .
 ├─ /_tools
@@ -19,7 +16,7 @@ default project structure:
 │  ├─ /containers
 │  ├─ /styles
 │  ├─ index.html
-│  └─ index.js
+│  └─ index.jsx
 ├─ .babelrc.js
 ├─ .eslintrc.js
 └─ webpack.config.js
@@ -32,8 +29,8 @@ default project structure:
 ### IE 11 support
 
 - Put `ie 11` in `overrideBrowserslist` property inside of `webpack.base.js` file.
-- Put `import 'react-app-polyfill/ie11';` in the `index.js`. More info [here](https://www.npmjs.com/package/react-app-polyfill#supporting-internet-explorer)
-- To use `whyDidYouRender` you need to replace the require call on `index.js`. See more [here](https://github.com/welldone-software/why-did-you-render#installation)
+- Put `import 'react-app-polyfill/ie11';` in the `index.jsx`. More info [here](https://www.npmjs.com/package/react-app-polyfill#supporting-internet-explorer)
+- To use `whyDidYouRender` you need to replace the require call on `index.jsx`. See more [here](https://github.com/welldone-software/why-did-you-render#installation)
 
 ## TODO
 
