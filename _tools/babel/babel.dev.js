@@ -16,8 +16,8 @@ module.exports = (api) => {
       {
         debug: process.env.DEBUG === 'true',
         targets:
-                    '> 5%, not ie 11, last 2 iOS versions, last 2 Safari versions,'
-                    + 'last 2 Edge versions, last 2 firefox versions',
+          '> 5%, not ie 11, last 2 iOS versions, last 2 Safari versions,'
+          + 'last 2 Edge versions, last 2 firefox versions',
         modules: false,
         shippedProposals: true,
       },
@@ -50,12 +50,14 @@ module.exports = (api) => {
 
     '@babel/plugin-transform-react-jsx-source', // Better stacks for error boundaries
 
+    // https://babeljs.io/docs/en/babel-plugin-proposal-nullish-coalescing-operator
+    '@babel/plugin-proposal-nullish-coalescing-operator',
+
     // Will I use?
     // https://babeljs.io/docs/en/babel-plugin-proposal-decorators
     // https://babeljs.io/docs/en/babel-plugin-proposal-do-expressions
     // https://babeljs.io/docs/en/babel-plugin-proposal-function-bind
     // https://babeljs.io/docs/en/babel-plugin-proposal-logical-assignment-operators
-    // https://babeljs.io/docs/en/babel-plugin-proposal-nullish-coalescing-operator
     // https://babeljs.io/docs/en/babel-plugin-proposal-private-methods
   ];
 
