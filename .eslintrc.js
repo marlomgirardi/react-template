@@ -1,25 +1,28 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
     settings: {
         // Follow webpack resolver roles, it includes DirectoryNamedWebpackPlugin
-        'import/resolver': {
+        "import/resolver": {
             webpack: {
-                config: path.resolve(__dirname, '_tools/webpack/webpack.dev.js')
-            }
-        }
+                config: path.resolve(
+                    __dirname,
+                    "_tools/webpack/webpack.dev.js"
+                ),
+            },
+        },
     },
 
     env: {
         browser: true,
         es6: true,
-        jest: true
+        jest: true,
     },
 
-    extends: ['mg/babel', 'mg/react'],
+    extends: ["mg/babel", "mg/react", "prettier", "prettier/react"],
 
     globals: {
-        Atomics: 'readonly',
-        SharedArrayBuffer: 'readonly'
-    }
+        Atomics: "readonly",
+        SharedArrayBuffer: "readonly",
+    },
 };

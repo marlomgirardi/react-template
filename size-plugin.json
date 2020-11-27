@@ -1,1 +1,46 @@
-[{"timestamp":1582386279546,"files":[{"filename":"main.********************.js","previous":59600,"size":59595,"diff":-5}]},{"timestamp":1582386064109,"files":[{"filename":"main.********************.js","previous":59634,"size":59600,"diff":-34}]},{"timestamp":1582385670335,"files":[{"filename":"main.********************.js","previous":0,"size":59634,"diff":59634}]}]
+[
+    {
+        "timestamp": 1606493823411,
+        "files": [
+            {
+                "filename": "main.********************.js",
+                "previous": 59595,
+                "size": 71940,
+                "diff": 12345
+            }
+        ]
+    },
+    {
+        "timestamp": 1582386279546,
+        "files": [
+            {
+                "filename": "main.********************.js",
+                "previous": 59600,
+                "size": 59595,
+                "diff": -5
+            }
+        ]
+    },
+    {
+        "timestamp": 1582386064109,
+        "files": [
+            {
+                "filename": "main.********************.js",
+                "previous": 59634,
+                "size": 59600,
+                "diff": -34
+            }
+        ]
+    },
+    {
+        "timestamp": 1582385670335,
+        "files": [
+            {
+                "filename": "main.********************.js",
+                "previous": 0,
+                "size": 59634,
+                "diff": 59634
+            }
+        ]
+    }
+]
